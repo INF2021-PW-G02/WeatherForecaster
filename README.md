@@ -16,5 +16,6 @@ A framework que iremos utilizar será o loopback 4, devido à sua fácil impleme
 
 No que toca ao planeamento inicial das nossas estruturas de dados, pensamos na utilização de 5 tabelas todas com ligações de 1 para muitos. As tabelas são country, city ,weather_status e os logs de weather por hora e por dias. As tabelas city e country identificam o local pretendido através das coordenadas da cidade e do nome do país. As tabelas weather_hourly_forecast_log e weather_daily_forecast_log armazenam os dados sobre as condições atmosféricas por hora e por dia. Temos também a tabela weather_status que armazenará um resumo das condições atmosféricas tendo em conta o dia ou a hora e que estará associado a uma cidade. Finalmente de forma a estabelecer uma ligação de muitos para muitos foi criada a tabela weather_institute, ou seja o mesmo log pode ser criado e analisado por múltiplos institutos tal como institutos esses que analisam e criam vários logs.
 
+![Diagrama ERD da BD](https://github.com/INF2021-PW-G02/weatherForecaster/blob/main/WeatherForecasterAPI_ERD_VP.jpg)
 
 
