@@ -1,0 +1,41 @@
+import {Entity, model, property} from '@loopback/repository';
+
+@model()
+export class City extends Entity {
+  @property({
+    type: 'number',
+    id: true,
+    generated: false,
+    required: true,
+  })
+  id: number;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  city_name: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  city_longitude: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  city_latitude: string;
+
+
+  constructor(data?: Partial<City>) {
+    super(data);
+  }
+}
+
+export interface CityRelations {
+  // describe navigational properties here
+}
+
+export type CityWithRelations = City & CityRelations;
