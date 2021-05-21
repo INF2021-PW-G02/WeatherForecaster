@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'WeatherForecasterDB',
   connector: 'mysql',
-  url: 'mysql://127.0.0.1:3308/weatherforecaster',
+  url: '',
   host: 'localhost',
   port: 3308,
   user: 'root',
