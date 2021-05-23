@@ -22,6 +22,10 @@ export class WeatherInstitute extends Entity {
   })
   address: string;
 
+  @property({
+    type: 'number',
+  })
+  city_id?: number;
 
   constructor(data?: Partial<WeatherInstitute>) {
     super(data);
