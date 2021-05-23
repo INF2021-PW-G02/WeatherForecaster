@@ -54,6 +54,11 @@ export class WeatherDailyForecastLog extends Entity {
   })
   weatherInstitute_id?: number;
 
+  @property({
+    type: 'number',
+  })
+  weatherStatus_id?: number;
+
   constructor(data?: Partial<WeatherDailyForecastLog>) {
     super(data);
   }
