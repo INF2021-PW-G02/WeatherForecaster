@@ -1,0 +1,931 @@
+{
+	"info": {
+		"_postman_id": "bfdabf82-7e6c-43da-b727-a6ee3be142e9",
+		"name": "weather-forecaster",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MostUsed",
+			"item": [
+				{
+					"name": "getCountries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://[::1]:3000/countries",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/cities",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWeatherInstitutes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-institutes",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-institutes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCountryIdByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"var country_name = pm.collectionVariables.get(\"country_name\");  \r",
+									"\r",
+									"for(var country in response) {\r",
+									"    if (country_name == response[country].country_name)\r",
+									"        pm.collectionVariables.set(\"country_id\", response[country].id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/countries",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCityIdByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"var city_name = pm.collectionVariables.get(\"city_name\");  \r",
+									"\r",
+									"for(var city in response) {\r",
+									"    if (city_name == response[city].city_name)\r",
+									"        pm.collectionVariables.set(\"city_id\", response[city].id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/cities",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCityWeatherDailyForecastLogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/cities/{{city_id}}/weather-daily-forecast-logs",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"weather-daily-forecast-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCityWeatherHourlyForecastLogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/cities/{{city_id}}/weather-hourly-forecast-logs",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"weather-hourly-forecast-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWeatherStatusIdFromWeatherDailyForecastByCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"var city_id = pm.collectionVariables.get(\"city_id\");  \r",
+									"\r",
+									"for(var daily in response) {\r",
+									"    if (city_id == response[daily].city_id)\r",
+									"        pm.collectionVariables.set(\"weatherStatus_id\", response[daily].weatherStatus_id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-daily-forecast-logs",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-daily-forecast-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWeatherStatusByCity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-statuses/{{weatherStatus_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-statuses",
+								"{{weatherStatus_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "postCountry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 3,\r\n  \"country_name\": \"França\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/countries",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCountryIdByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"var country_name = pm.collectionVariables.get(\"country_name\");  \r",
+									"\r",
+									"for(var country in response) {\r",
+									"    if (country_name == response[country].country_name)\r",
+									"        pm.collectionVariables.set(\"country_id\", response[country].id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/countries",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCountryById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/countries/{{country_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putCountryById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"country_name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/countries/{{country_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "postCity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 3,\r\n  \"city_name\": \"Paris\",\r\n  \"city_longitude\": \"2° 20' 56.4504'' E\",\r\n  \"city_latitude\": \"48° 51' 52.9776'' N\",\r\n  \"country_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/cities",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCityIdByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"var city_name = pm.collectionVariables.get(\"city_name\");  \r",
+									"\r",
+									"for(var city in response) {\r",
+									"    if (city_name == response[city].city_name)\r",
+									"        pm.collectionVariables.set(\"city_id\", response[city].id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/cities",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCityById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/cities/{{city_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities",
+								"{{city_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putCityById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"city_name\": \"string\",\r\n  \"city_longitude\": \"string\",\r\n  \"city_latitude\": \"string\",\r\n  \"country_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/cities/{{city_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"cities",
+								"{{city_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WeatherInstitute",
+			"item": [
+				{
+					"name": "postWeatherInstitute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"address\": \"string\",\r\n  \"city_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-institutes",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-institutes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getWeatherInstituteIdByAddress",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();\r",
+									"var weatherInstituteAddress = pm.collectionVariables.get(\"weatherInstituteAddress\");  \r",
+									"\r",
+									"for(var institute in response) {\r",
+									"    if (weatherInstituteAddress == response[institute].address)\r",
+									"        pm.collectionVariables.set(\"weatherInstitute_id\", response[institute].id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-institutes",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-institutes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWeatherInstitute",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-institutes/{{weatherInstitute_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-institutes",
+								"{{weatherInstitute_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putWeatherInstitute",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"address\": \"string\",\r\n  \"city_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-institutes/{{weatherInstitute_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-institutes",
+								"{{weatherInstitute_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WeatherStatus",
+			"item": [
+				{
+					"name": "postWeatherStatus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"weather_status\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-statuses",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWeatherStatus",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-statuses/{{weatherStatus_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-statuses",
+								"{{weatherStatus_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putWeatherStatus",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"weather_status\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-statuses/{{weatherStatus_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-statuses",
+								"{{weatherStatus_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WeatherDailyLog",
+			"item": [
+				{
+					"name": "postWeatherDailyLog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"calendar_date\": \"2021-05-23T19:17:03.079Z\",\r\n  \"min_temperature\": 0,\r\n  \"max_temperature\": 0,\r\n  \"avg_humidity\": 0,\r\n  \"sunrise_time\": \"2021-05-23T19:17:03.079Z\",\r\n  \"sunset_time\": 0,\r\n  \"city_id\": 0,\r\n  \"weatherInstitute_id\": 0,\r\n  \"weatherStatus_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000//weather-daily-forecast-logs",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"",
+								"weather-daily-forecast-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWeatherDailyLog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-daily-forecast-logs/{{weatherDailyForecasLog_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-daily-forecast-logs",
+								"{{weatherDailyForecasLog_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putWeatherDailyLog",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"calendar_date\": \"2021-05-23T19:17:03.079Z\",\r\n  \"min_temperature\": 0,\r\n  \"max_temperature\": 0,\r\n  \"avg_humidity\": 0,\r\n  \"sunrise_time\": \"2021-05-23T19:17:03.079Z\",\r\n  \"sunset_time\": 0,\r\n  \"city_id\": 0,\r\n  \"weatherInstitute_id\": 0,\r\n  \"weatherStatus_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-daily-forecast-logs/{{weatherDailyForecasLog_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-daily-forecast-logs",
+								"{{weatherDailyForecasLog_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WeatherHourlyLog",
+			"item": [
+				{
+					"name": "postWeatherHourlyLog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"start_timestamp\": \"2021-05-23T19:50:17.832Z\",\r\n  \"end_timestamp\": \"2021-05-23T19:50:17.832Z\",\r\n  \"temperature\": 0,\r\n  \"humidity\": 0,\r\n  \"wind_speed\": 0,\r\n  \"wind_direction\": \"string\",\r\n  \"pressure\": 0,\r\n  \"visibility\": 0,\r\n  \"weatherInstitute_id\": 0,\r\n  \"weatherStatus_id\": 0,\r\n  \"city_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-hourly-forecast-logs",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-hourly-forecast-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWeatherHourlyLog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/weather-hourly-forecast-logs/{{weatherHourlyForecasLog_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-hourly-forecast-logs",
+								"{{weatherHourlyForecasLog_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putWeatherHourlyLog",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"start_timestamp\": \"2021-05-23T19:50:17.832Z\",\r\n  \"end_timestamp\": \"2021-05-23T19:50:17.832Z\",\r\n  \"temperature\": 0,\r\n  \"humidity\": 0,\r\n  \"wind_speed\": 0,\r\n  \"wind_direction\": \"string\",\r\n  \"pressure\": 0,\r\n  \"visibility\": 0,\r\n  \"weatherInstitute_id\": 0,\r\n  \"weatherStatus_id\": 0,\r\n  \"city_id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/weather-hourly-forecast-logs/{{weatherHourlyForecasLog_id}}",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"weather-hourly-forecast-logs",
+								"{{weatherHourlyForecasLog_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "city_name",
+			"value": "Porto"
+		},
+		{
+			"key": "country_name",
+			"value": "Portugal"
+		},
+		{
+			"key": "city_id",
+			"value": "1"
+		},
+		{
+			"key": "country_id",
+			"value": "1"
+		},
+		{
+			"key": "weatherStatus_id",
+			"value": 1
+		},
+		{
+			"key": "weatherInstituteAddress",
+			"value": "Pedras Rubras, 4470-558 Vila Nova da Telha"
+		},
+		{
+			"key": "weatherInstitute_id",
+			"value": 1
+		},
+		{
+			"key": "weatherDailyForecasLog_id",
+			"value": "1"
+		},
+		{
+			"key": "weatherHourlyForecasLog_id",
+			"value": "24"
+		}
+	]
+}
