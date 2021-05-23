@@ -1,5 +1,6 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {WeatherInstitute} from './weather-institute.model';
+import {WeatherDailyForecastLog} from './weather-daily-forecast-log.model';
 
 @model()
 export class City extends Entity {
@@ -36,6 +37,9 @@ export class City extends Entity {
 
   @hasMany(() => WeatherInstitute, {keyTo: 'city_id'})
   weatherInstitutes: WeatherInstitute[];
+
+  @hasMany(() => WeatherDailyForecastLog, {keyTo: 'city_id'})
+  weatherDailyForecastLogs: WeatherDailyForecastLog[];
 
   constructor(data?: Partial<City>) {
     super(data);

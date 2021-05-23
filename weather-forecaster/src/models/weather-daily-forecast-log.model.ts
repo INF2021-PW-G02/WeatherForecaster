@@ -44,6 +44,15 @@ export class WeatherDailyForecastLog extends Entity {
   })
   sunset_time?: number;
 
+  @property({
+    type: 'number',
+  })
+  city_id?: number;
+
+  @property({
+    type: 'number',
+  })
+  weatherInstitute_id?: number;
 
   constructor(data?: Partial<WeatherDailyForecastLog>) {
     super(data);
