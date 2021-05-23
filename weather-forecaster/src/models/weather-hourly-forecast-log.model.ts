@@ -66,6 +66,11 @@ export class WeatherHourlyForecastLog extends Entity {
   })
   weatherStatus_id?: number;
 
+  @property({
+    type: 'number',
+  })
+  city_id?: number;
+
   constructor(data?: Partial<WeatherHourlyForecastLog>) {
     super(data);
   }

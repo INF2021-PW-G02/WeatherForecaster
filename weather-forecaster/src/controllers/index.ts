@@ -12,3 +12,4 @@ export * from './weather-institute.controller';
 export * from './weather-daily-forecast-log.controller';
 export * from './weather-hourly-forecast-log.controller';
 export * from './weather-status.controller';
+export * from './city-weather-hourly-forecast-log.controller';
