@@ -5,7 +5,7 @@ export const WeatherStatusList = props => (
         <Datagrid rowClick="edit">
             <NumberField source="id" />
             <TextField source="weather_status" />
-            <EditButton/>
+            <EditButton />
         </Datagrid>
     </List>
 );
