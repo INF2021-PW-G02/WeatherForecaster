@@ -7,15 +7,19 @@ import { CityList } from './CitiesList';
 import { WeatherInstituteList } from './WeatherInstitutesList';
 import { WeatherStatusList } from './WeatherStatusesList';
 import cityIcon from "@material-ui/icons/LocationCity";
+import weatherIcon from "@materials-ui/icons/WbSunny";
+import globeIcon from "@materials-ui/icons/Language";
+import instituteIcom from "@materials-ui/icons/HomeWork";
+
 
 const dataProvider = lb4Provider("http://localhost:3000");
 
 const App = () => (
   <Admin dataProvider = {dataProvider}>
-    <Resource name="countries" list={CountryList}/>
+    <Resource name="countries" list={CountryList} icon={globeIcon}/>
     <Resource name="cities" list={CityList} icon={cityIcon}/>
-    <Resource name="weather-institutes" list={WeatherInstituteList}/>
-    <Resource name="weather-statuses" list={WeatherStatusList} edit={EditGuesser}/>
+    <Resource name="weather-institutes" list={WeatherInstituteList} icon={instituteIcom}/>
+    <Resource name="weather-statuses" list={WeatherStatusList} edit={EditGuesser} icon={weatherIcon}/>
   </Admin>
 );
 
