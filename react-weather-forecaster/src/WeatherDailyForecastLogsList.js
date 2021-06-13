@@ -12,8 +12,8 @@ export const WeatherDailyForecastLogsList = props =>
             <DateField source="sunrise_time" />
             <DateField source="sunset_time" />
             <ReferenceField source="city_id" reference="cities"><NumberField source="id" /></ReferenceField>
-            <ReferenceField source="weatherInstitute_id" reference="weatherInstitutes"><NumberField source="id" /></ReferenceField>
-            <ReferenceField source="weatherStatus_id" reference="weatherStatuses"><NumberField source="id" /></ReferenceField>
+            <ReferenceField source="weatherInstitute_id" reference="weather-institutes"><NumberField source="id" /></ReferenceField>
+            <ReferenceField source="weatherStatus_id" reference="weather-statuses"><NumberField source="id" /></ReferenceField>
         </Datagrid>
     </List>
 )
