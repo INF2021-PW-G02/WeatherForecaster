@@ -18,6 +18,12 @@ export class WeatherStatus extends Entity {
   })
   weather_status: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  weather_type: string;
+
   @hasMany(() => WeatherDailyForecastLog, {keyTo: 'weatherStatus_id'})
   weatherDailyForecastLogs: WeatherDailyForecastLog[];
 
