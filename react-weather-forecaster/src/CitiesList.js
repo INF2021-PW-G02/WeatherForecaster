@@ -1,9 +1,18 @@
-import { List, Datagrid, TextField, NumberField, ReferenceField, 
-        Edit, EditButton, SimpleForm, TextInput, NumberInput, ReferenceInput, SelectInput} 
-        from "react-admin";
+import {
+    List, Datagrid, TextField, NumberField, ReferenceField,
+    Edit, EditButton, SimpleForm, TextInput, NumberInput, ReferenceInput, SelectInput,
+    Filter
+}
+    from "react-admin";
 
-export const CityList = props => (
-    <List {...props}>
+const PostTitle = ({ record }) =>
+    <span>City of {record ? `${record.city_name}` : ''}</span>
+const PostFilter = (props) => <Filter {...props}>
+    <TextInput label="Search" source="city_name" alwaysOn />
+</Filter>
+
+export const CityList = (props) => (
+    <List filters={<PostFilter />} {...props}>
         <Datagrid rowClick="edit">
             <NumberField source="id" />
             <TextField source="city_name" />
@@ -16,7 +25,7 @@ export const CityList = props => (
 );
 
 export const CityEdit = props => (
-    <Edit {...props}>
+    <Edit title={<PostTitle />} {...props}>
         <SimpleForm>
             <NumberInput source="id" />
             <TextInput source="city_name" />
