@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import {Admin, Resource, ListGuesser, List, EditGuesser} from "react-admin";
+import {Admin, Resource} from "react-admin";
 import lb4Provider from "react-admin-lb4";
-import { CountryList } from './CountriesList';
-import { CityList } from './CitiesList';
-import { WeatherInstituteList } from './WeatherInstitutesList';
-import { WeatherStatusList } from './WeatherStatusesList';
-import { WeatherDailyForecastLogsList } from './WeatherDailyForecastLogsList';
-import { WeatherHourlyForecastLogsList } from './WeatherHourlyForecastLogsList';
+import { CountryEdit, CountryList } from './CountriesList';
+import { CityEdit, CityList } from './CitiesList';
+import { WeatherInstituteEdit, WeatherInstituteList } from './WeatherInstitutesList';
+import { WeatherStatusEdit, WeatherStatusList } from './WeatherStatusesList';
+import { WeatherDailyForecastLogsEdit, WeatherDailyForecastLogsList } from './WeatherDailyForecastLogsList';
+import { WeatherHourlyForecastLogsEdit, WeatherHourlyForecastLogsList } from './WeatherHourlyForecastLogsList';
 import cityIcon from "@material-ui/icons/LocationCity";
 import weatherIcon from "@material-ui/icons/WbSunny";
 import globeIcon from "@material-ui/icons/Language";
@@ -18,12 +17,12 @@ const dataProvider = lb4Provider("http://localhost:3000");
 
 const App = () => (
   <Admin dataProvider = {dataProvider}>
-    <Resource name="countries" list={CountryList} icon={globeIcon}/>
-    <Resource name="cities" list={CityList} icon={cityIcon}/>
-    <Resource name="weather-institutes" list={WeatherInstituteList} icon={instituteIcom}/>
-    <Resource name="weather-statuses" list={WeatherStatusList} edit={EditGuesser} icon={weatherIcon}/>
-    <Resource name="weather-daily-forecast-logs" list={WeatherDailyForecastLogsList} icon={logIcon}/>
-    <Resource name="weather-hourly-forecast-logs" list={WeatherHourlyForecastLogsList} icon={logIcon}/>
+    <Resource name="countries" list={CountryList} edit={CountryEdit} icon={globeIcon}/>
+    <Resource name="cities" list={CityList} edit={CityEdit} icon={cityIcon}/>
+    <Resource name="weather-institutes" list={WeatherInstituteList} edit={WeatherInstituteEdit} icon={instituteIcom}/>
+    <Resource name="weather-statuses" list={WeatherStatusList} edit={WeatherStatusEdit} icon={weatherIcon}/>
+    <Resource name="weather-daily-forecast-logs" list={WeatherDailyForecastLogsList} edit={WeatherDailyForecastLogsEdit} icon={logIcon}/>
+    <Resource name="weather-hourly-forecast-logs" list={WeatherHourlyForecastLogsList} edit={WeatherHourlyForecastLogsEdit} icon={logIcon}/>
   </Admin>
 );
 
