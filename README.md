@@ -4,7 +4,7 @@ Repository to host the project developed for 'Programação Web', a second year 
 
 ## Description
 
-The API developed has the objective to serve as a mean to check the weather .
+The API developed has the objective to serve as a mean to check the weather. Weather Forecaster lets consult the weather daily or hourly from cities from various countries.
 
 ## Repository organization
 
