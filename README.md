@@ -16,6 +16,8 @@ Our Repository is organized using the GitHub platform, found in [this link](http
 
 ![Diagrama ERD WeatherForecaster](https://github.com/INF2021-PW-G02/WeatherForecaster/blob/main/doc/images/WeatherForecasterAPI_ERD_VP.jpg)
 
+Entity Relationship Diagram of the Database
+
 ## Technologies
 
 * [React js](https://reactjs.org);
