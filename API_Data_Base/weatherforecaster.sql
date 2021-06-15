@@ -2,8 +2,8 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: May 23, 2021 at 10:05 PM
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 15, 2021 at 11:37 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -185,7 +185,7 @@ CREATE TABLE `weatherinstitute` (
 
 INSERT INTO `weatherinstitute` (`id`, `name`, `address`, `city_id`) VALUES
 (1, 'IPMA - Aeroporto do Porto', 'Pedras Rubras, 4470-558 Vila Nova da Telha', 1),
-(2, 'AEMET, State Meteorological Agency', 'Leonardo Prieto, 8 (Ciudad Universitaria, 28071, Madrid, Spain', 2);
+(2, 'AEMET, State Meteorological Agency', 'Leonardo Prieto, 8 Ciudad Universitaria, 28071, Madrid, Spain', 2);
 
 -- --------------------------------------------------------
 
@@ -195,16 +195,17 @@ INSERT INTO `weatherinstitute` (`id`, `name`, `address`, `city_id`) VALUES
 
 CREATE TABLE `weatherstatus` (
   `id` int(10) NOT NULL,
-  `weather_status` varchar(512) NOT NULL
+  `weather_status` varchar(512) NOT NULL,
+  `weather_type` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `weatherstatus`
 --
 
-INSERT INTO `weatherstatus` (`id`, `weather_status`) VALUES
-(1, 'RESUMO:\r\nCéu geralmente pouco nublado, com períodos de maior nebulosidade no\r\nlitoral Norte e Centro. Vento por vezes forte no litoral oeste a sul\r\ne nas terras altas com rajadas até 70 km/h.'),
-(2, 'RESUMEN:\r\nCielo generalmente claro, con periodos de mayor nubosidad en el\r\nCosta norte y centro. A veces, viento fuerte en la costa oeste a sur\r\ny en el altiplano con rachas de hasta 70 km / h.');
+INSERT INTO `weatherstatus` (`id`, `weather_status`, `weather_type`) VALUES
+(1, 'Pouco nublado possível periodos de chuva.\r\n\r\n', 'Nublado'),
+(2, '', '');
 
 --
 -- Indexes for dumped tables
