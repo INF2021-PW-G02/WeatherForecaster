@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+.charts{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start
+  }
+
+.chartTitle{
+  margin-left: 20px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
