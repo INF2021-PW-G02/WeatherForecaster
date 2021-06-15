@@ -13,11 +13,12 @@ import weatherIcon from "@material-ui/icons/WbSunny";
 import globeIcon from "@material-ui/icons/Language";
 import instituteIcom from "@material-ui/icons/HomeWork";
 import logIcon from "@material-ui/icons/ListAlt";
+import { theme } from './theme';
 
 const dataProvider = lb4Provider("http://localhost:3000");
 
 const App = () => (
-  <Admin dashboard={dashboard} dataProvider = {dataProvider}>
+  <Admin theme={theme} dashboard={dashboard} dataProvider = {dataProvider}>
     <Resource name="countries" list={CountryList} edit={CountryEdit} icon={globeIcon}/>
     <Resource name="cities" list={CityList} edit={CityEdit} icon={cityIcon}/>
     <Resource name="weather-institutes" list={WeatherInstituteList} edit={WeatherInstituteEdit} icon={instituteIcom}/>
