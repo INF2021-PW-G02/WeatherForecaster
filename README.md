@@ -1,6 +1,6 @@
 # Weather Forecaster
 
-Repository to host the project developed for 'Programação Web', a second year subject at ISMAI. Developed by Group 2 : [@a037322](https://github.com/a037322), [@guylhermers](https://github.com/guylhermers), [@Hugo-D-Lanco](https://github.com/Hugo-D-Lanco).
+Repository to host the project developed for 'Programação Web', a second year subject at ISMAI. Developed by Group _02_ : [@a037322](https://github.com/a037322), [@guylhermers](https://github.com/guylhermers), [@Hugo-D-Lanco](https://github.com/Hugo-D-Lanco).
 
 ## Description
 
@@ -10,7 +10,7 @@ The API developed has the objective to serve as a mean to check the weather. Wea
 
 Our Repository is organized using the GitHub platform, found in [this link](https://github.com/INF2021-PW-G02/WeatherForecaster).
 * The **Source code** is in the [src folder](https://github.com/INF2021-PW-G02/WeatherForecaster/tree/main/react-weather-forecaster/src).
-* The Report chapters are found in the [doc folder](https://github.com/INF2021-PW-G02/WeatherForecaster/tree/main/doc).
+* The **Report chapters** are found in the [doc folder](https://github.com/INF2021-PW-G02/WeatherForecaster/tree/main/doc).
 
 ## Gallery
 
@@ -20,7 +20,7 @@ Our Repository is organized using the GitHub platform, found in [this link](http
 
 * [React js](https://reactjs.org);
 * [React Admin](https://marmelab.com/react-admin/);
-* [HTML5](https://www.w3schools.com/html/);
+* [HTML5](https://www.w3schools.com/html);
 * [Loopback](https://loopback.io);
 * [Xampp](https://www.apachefriends.org/index.html);
 * [phpMyAdmin](https://www.phpmyadmin.net);
@@ -39,7 +39,7 @@ Our Repository is organized using the GitHub platform, found in [this link](http
 ### Project Presentation
 * Chapter 1: [Project presentation](doc/c1.md)
 ### User Interface 
-* Chapter 2: [User Interface Prototype and Sitemap](doc/c2.md)
+* Chapter 2: [User Interface](doc/c2.md)
 ### Product
 * Chapter 3: [Product](doc/c3.md)
 ### Presentation
