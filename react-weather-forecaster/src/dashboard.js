@@ -4,7 +4,9 @@ import { Card, CardContent, CardHeader } from '@material-ui/core';
 import axios from 'axios';
 import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
 
-export default class Cities extends React.Component {
+const cities = [];
+
+export default class Dashboard extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -23,6 +25,11 @@ export default class Cities extends React.Component {
                 this.setState({ hourlyLogs2: response.data })
                 console.log(response.data)
             });
+        axios.get('http://[::1]:3000/cities')
+            .then(response => {
+                this.setState({ cities: response.data })
+                console.log(response.data)
+            });
     }
 
 
@@ -35,14 +42,14 @@ export default class Cities extends React.Component {
                 <br></br>
                 <Card>
                     <CardHeader title="Welcome to Weather Forecaster" />
-                        <CardContent>This is where you can better visualize the 
-                            contents of the DataBase and also manage the records of our API.
+                    <CardContent>This is where you can better visualize the
+                        contents of the DataBase and also manage the records of our API.
                     </CardContent>
                 </Card>
                 <br></br>
                 <Card>
                     <div className="chart" id="chart">
-                        <h3 className="chartTitle" id="chartTitle">Forecast for city of Madrid</h3>
+                        <h3 className="chartTitle" id="chartTitle">Forecast for city of Porto</h3>
                         <ResponsiveContainer width={"100%"} height={500}>
                             <LineChart
                                 width={500}

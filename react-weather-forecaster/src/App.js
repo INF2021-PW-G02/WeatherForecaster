@@ -1,5 +1,5 @@
 import './App.css';
-import {Admin, Resource} from "react-admin";
+import {Admin, Resource, Title} from "react-admin";
 import lb4Provider from "react-admin-lb4";
 import dashboard from './dashboard';
 import { CountryEdit, CountryList } from './CountriesList';
@@ -18,13 +18,14 @@ import { theme } from './theme';
 const dataProvider = lb4Provider("http://localhost:3000");
 
 const App = () => (
-  <Admin theme={theme} dashboard={dashboard} dataProvider = {dataProvider}>
+  <Admin theme={theme} name="DashBoard" dashboard={dashboard} dataProvider = {dataProvider}>
+    <Title title="Weather Forecaster "/>
     <Resource name="countries" list={CountryList} edit={CountryEdit} icon={globeIcon}/>
     <Resource name="cities" list={CityList} edit={CityEdit} icon={cityIcon}/>
-    <Resource name="weather-institutes" list={WeatherInstituteList} edit={WeatherInstituteEdit} icon={instituteIcom}/>
-    <Resource name="weather-statuses" list={WeatherStatusList} edit={WeatherStatusEdit} icon={weatherIcon}/>
-    <Resource name="weather-daily-forecast-logs" list={WeatherDailyForecastLogsList} edit={WeatherDailyForecastLogsEdit} icon={logIcon}/>
-    <Resource name="weather-hourly-forecast-logs" list={WeatherHourlyForecastLogsList} edit={WeatherHourlyForecastLogsEdit} icon={logIcon}/>
+    <Resource name="weather-institutes" options={{ label: "Intitutes"}} list={WeatherInstituteList} edit={WeatherInstituteEdit} icon={instituteIcom}/>
+    <Resource name="weather-statuses" options={{ label: "Statuses"}} list={WeatherStatusList} edit={WeatherStatusEdit} icon={weatherIcon}/>
+    <Resource name="weather-daily-forecast-logs" options={{ label: "Daily Logs"}} list={WeatherDailyForecastLogsList} edit={WeatherDailyForecastLogsEdit} icon={logIcon}/>
+    <Resource name="weather-hourly-forecast-logs" options={{ label: "Hourly Logs"}} list={WeatherHourlyForecastLogsList} edit={WeatherHourlyForecastLogsEdit} icon={logIcon}/>
   </Admin>
 );
 

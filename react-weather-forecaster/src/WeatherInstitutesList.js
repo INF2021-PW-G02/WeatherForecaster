@@ -1,9 +1,18 @@
-import { List, Datagrid, TextField, NumberField, ReferenceField,
-        EditButton, Edit, SimpleForm, NumberInput, TextInput, ReferenceInput, SelectInput} 
+import {
+    List, Datagrid, TextField, NumberField, ReferenceField,
+    EditButton, Edit, SimpleForm, NumberInput, TextInput, ReferenceInput, SelectInput
+    , Filter
+}
     from "react-admin";
 
+const PostTitle = ({ record }) =>
+    <span>City of {record ? `${record.name}` : ''}</span>
+const PostFilter = (props) => <Filter {...props}>
+    <TextInput label="Search" source="name" alwaysOn />
+</Filter>
+
 export const WeatherInstituteList = props => (
-    <List {...props}>
+    <List filters={<PostFilter />} {...props}>
         <Datagrid rowClick="edit">
             <NumberField source="id" />
             <TextField source="name" />
@@ -15,7 +24,7 @@ export const WeatherInstituteList = props => (
 );
 
 export const WeatherInstituteEdit = props => (
-    <Edit {...props}>
+    <Edit title={<PostTitle />}{...props}>
         <SimpleForm>
             <NumberInput source="id" />
             <TextInput source="name" />
