@@ -7,14 +7,8 @@
   pointer-events: none;
 }
 
-.charts{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start
-  }
-
-.chartTitle{
-  margin-left: 20px;
+#chartTitle{
+  margin-left: 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

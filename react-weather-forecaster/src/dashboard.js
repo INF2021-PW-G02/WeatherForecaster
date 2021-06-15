@@ -32,10 +32,18 @@ export default class Cities extends React.Component {
     render() {
         return (
             <div id="charts">
+                <br></br>
+                <Card>
+                    <CardHeader title="Welcome to Weather Forecaster" />
+                        <CardContent>This is where you can better visualize the 
+                            contents of the DataBase and also manage the records of our API.
+                    </CardContent>
+                </Card>
+                <br></br>
                 <Card>
                     <div className="chart" id="chart">
-                        <h3 className="chartTitle" id="chartTitle">Teste Chart</h3>
-                        <ResponsiveContainer width={"50%"} height={500}>
+                        <h3 className="chartTitle" id="chartTitle">Forecast for city of Madrid</h3>
+                        <ResponsiveContainer width={"100%"} height={500}>
                             <LineChart
                                 width={500}
                                 height={300}
@@ -58,10 +66,11 @@ export default class Cities extends React.Component {
                         </ResponsiveContainer>
                     </div>
                 </Card>
+                <br></br>
                 <Card>
                     <div className="chart" id="chart">
-                        <h3 className="chartTitle" id="chartTitle">Teste Chart</h3>
-                        <ResponsiveContainer width={"50%"} height={500}>
+                        <h3 className="chartTitle" id="chartTitle">Forecast for city of Madrid</h3>
+                        <ResponsiveContainer width={"100%"} height={500}>
                             <LineChart
                                 width={500}
                                 height={300}
